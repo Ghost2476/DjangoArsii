@@ -1,0 +1,19 @@
+{% extends 'base_admin.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block page_content %}
+<h1 class="page__title">Dashboard</h1>
+<div class="stats">
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_users }}</span>
+    <span class="stat-card__label">Total Users</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total_admins }}</span>
+    <span class="stat-card__label">Total Admins</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-card__value">{{ stats.total }}</span>
+    <span class="stat-card__label">All Accounts</span>
+  </div>
+</div>
+{% endblock %}

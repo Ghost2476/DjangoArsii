@@ -1,0 +1,22 @@
+{% extends 'base_admin.html' %}
+{% block title %}User — {{ u.username }}{% endblock %}
+{% block page_content %}
+<h1 class="page__title">{{ u.username }}</h1>
+<div class="detail-card">
+  <p><strong>Email:</strong> {{ u.email }}</p>
+  <p><strong>Role:</strong> {{ u.role }}</p>
+  <p><strong>Joined:</strong> {{ u.date_joined|date:"Y-m-d" }}</p>
+  <p><strong>Bio:</strong> {{ u.bio|default:'—' }}</p>
+</div>
+<div class="actions">
+  <form method="post">
+    {% csrf_token %}
+    <button name="action" value="toggle_role" class="btn btn--outline">
+      {% if u.role == 'user' %}Promote to Admin{% else %}Demote to User{% endif %}
+    </button>
+    <button name="action" value="delete" class="btn btn--danger"
+      onclick="return confirm('Delete {{ u.username }}?')">Delete User</button>
+  </form>
+  <a href="{% url 'admin_users' %}" class="btn btn--ghost">← Back to Users</a>
+</div>
+{% endblock %}

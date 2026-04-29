@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar__logo">MyProject</div>
+    <nav class="sidebar__nav">
+      <a href="{% url 'dashboard_home' %}" class="sidebar__link">Home</a>
+      <a href="{% url 'user_profile' %}"  class="sidebar__link">Profile</a>
+      <a href="{% url 'user_settings' %}" class="sidebar__link">Settings</a>
+    </nav>
+    <div class="sidebar__footer">
+      <span>{{ request.user.username }}</span>
+      <a href="{% url 'logout' %}" class="btn btn--ghost btn--sm">Logout</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page">
+      {% block page_content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="auth">
+  <div class="auth__card">
+    <h1 class="auth__title">Sign In</h1>
+    <form method="post" class="form">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form__group">
+          <label class="form__label">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <span class="form__error">{{ field.errors|join:', ' }}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+    </form>
+    <p class="auth__link">No account? <a href="{% url 'register' %}">Register</a></p>
+  </div>
+</div>
+{% endblock %}

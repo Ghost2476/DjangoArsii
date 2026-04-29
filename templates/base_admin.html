@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="layout layout--admin">
+  <aside class="sidebar sidebar--admin">
+    <div class="sidebar__logo">Admin Panel</div>
+    <nav class="sidebar__nav">
+      <a href="{% url 'admin_dashboard' %}" class="sidebar__link">Dashboard</a>
+      <a href="{% url 'admin_users' %}"     class="sidebar__link">Users</a>
+    </nav>
+    <div class="sidebar__footer">
+      <span>{{ request.user.username }}</span>
+      <a href="{% url 'logout' %}" class="btn btn--ghost btn--sm">Logout</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page">
+      {% block page_content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}

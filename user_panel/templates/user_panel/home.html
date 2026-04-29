@@ -1,0 +1,6 @@
+{% extends 'base_user.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block page_content %}
+<h1 class="page__title">Welcome back, {{ request.user.username }}!</h1>
+<p class="page__subtitle">This is your personal dashboard.</p>
+{% endblock %}
