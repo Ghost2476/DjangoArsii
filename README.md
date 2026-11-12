@@ -1,2 +1,2 @@
 # DjangoArsii
-Projet meyfhem chy
+full Project Django
